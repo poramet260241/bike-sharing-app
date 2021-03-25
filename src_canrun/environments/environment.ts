@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDAWsFXq_W-elyOGrFMUkBVzBd0aUbDEzc",
-    authDomain: "bike-sharing-project-8812f.firebaseapp.com",
-    databaseURL: "https://bike-sharing-project-8812f.firebaseio.com",
-    projectId: "bike-sharing-project-8812f",
-    storageBucket: "bike-sharing-project-8812f.appspot.com",
-    messagingSenderId: "1075287945474",
-    appId: "1:1075287945474:web:1477f72a5474d656ca121b",
-    measurementId: "G-689PJ90SXS"
+    apiKey: "ENTER YOUR DATA",
+    authDomain: "ENTER YOUR DATA",
+    databaseURL: "ENTER YOUR DATA",
+    projectId: "ENTER YOUR DATA",
+    storageBucket: "ENTER YOUR DATA",
+    messagingSenderId: "ENTER YOUR DATA",
+    appId: "ENTER YOUR DATA",
+    measurementId: "ENTER YOUR DATA"
   }
 };
 
