@@ -1,9 +1,9 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {AuthenticationService} from '../shared/authentication.service';
-import {Router} from '@angular/router';
 import {BikeService} from '../shared/bike.service';
 import {Bike} from '../shared/bike';
 import {ViewChild, ElementRef} from '@angular/core';
+import {NavController} from '@ionic/angular'
 
 declare var google: any;
 
@@ -26,18 +26,16 @@ export class MapPage implements OnInit, AfterViewInit{
 
     constructor(
         private bikeService: BikeService,
-        private router: Router,
         public authenticationService: AuthenticationService,
-    ) { }
+        private  navController: NavController,
+    ) { console.log('contructor'); }
 
-    private readAllBike(){
+    public readAllBike(){
         this.markersArray = [];
         this.bikeService.getAllBike().snapshotChanges().subscribe(res => {
             this.bikes.length = 0;
             res.forEach(t => {
                 const bike = t.payload.toJSON();
-                // bike[`$key`] = t.key;
-                // bike[`isChange`] = true;
                 this.bikes.push(bike as Bike);
             });
 
@@ -56,7 +54,6 @@ export class MapPage implements OnInit, AfterViewInit{
     }
     addMarkersToMap(bikes){
         bikes.forEach(bike => {
-            // const found = this.markersArray.find( {title} === bike.dev_id);
             const found: any = this.findObject(this.markersArray, bike.dev_id);
             const location = new google.maps.LatLng(bike.latitude, bike.longitude);
             let mkIcon;
@@ -132,9 +129,9 @@ export class MapPage implements OnInit, AfterViewInit{
         console.log('ngOnInit');
     }
 
-    ionViewDidEnter(){
+    async ionViewDidEnter(){
         console.log('ionViewDidEnter');
-        this.readAllBike();
+        await this.readAllBike();
     }
 
     ngAfterViewInit() {
@@ -155,9 +152,9 @@ export class MapPage implements OnInit, AfterViewInit{
 
     floatBtnClick() {
         if (this.authenticationService.getCurrentUser()) {
-            this.router.navigate(['user-detail']);
+            this.navController.navigateBack(['user-detail']).then();
         } else {
-            this.router.navigate(['app-login']);
+            this.navController.navigateBack(['app-login']).then();
         }
     }
 

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="authenticationService.getCurrentUser() === null">
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-grid>
+            <ion-row class="ion-align-items-center">
+                <ion-col size="12" class="ion-text-center">
+                    <ion-button (click)="logIn()" color="secondary" expand="block">Sign In</ion-button>
+                    <!-- <ion-button (click)="signUp()" color="secondary" expand="block">Sign Up</ion-button> -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

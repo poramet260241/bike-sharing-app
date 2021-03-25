@@ -20,7 +20,10 @@ export class AppLoginPage implements OnInit {
     ngOnInit() {
         console.log('login-page');
         if (this.authenticationService.getCurrentUser()){
-            this.router.navigate(['user-detail']).then();
+            this.router.navigate(['user-detail'], {replaceUrl: true}).then();
+        }
+        else{
+            this.router.navigate(['app-login'], {replaceUrl: true}).then();
         }
     }
 
@@ -42,7 +45,7 @@ export class AppLoginPage implements OnInit {
         this.authenticationService.SignIn(form.value.email, form.value.password)
             .then((res) => {
                 this.authenticationService.setCurrentUser(res.user);
-                this.router.navigate(['map']).then();
+                this.router.navigate(['map'], {replaceUrl: true}).then();
             }).catch(() => {
             this.presentPasswordAlert().then();
         });

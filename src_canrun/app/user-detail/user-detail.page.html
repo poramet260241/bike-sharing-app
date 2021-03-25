@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Details</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+<!--        <ion-card-header>-->
+<!--            <ion-card-title>Details</ion-card-title>-->
+<!--        </ion-card-header>-->
+
+        <ion-card-content>
+            <img src="/assets/profile.png" class="avatar">
+            <br><br><h1>{{authenticationService.getCurrentUser().displayName}}</h1>
+            <h2>{{authenticationService.getCurrentUser().email}}</h2>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="12" class="ion-text-center">
+                <ion-button expand="block" (click)="presentAlert()" color="danger">Sign Out</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+

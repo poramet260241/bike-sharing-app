@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+<!--  <ion-toolbar>-->
+<!--    <ion-title>-->
+<!--      PSU Bike-->
+<!--    </ion-title>-->
+<!--  </ion-toolbar>-->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="floatBtnClick()" color="danger">
+      <ion-icon name="person-outline" size="small"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div #map id="map"></div>
+
+
+<!--  <div *ngIf="authenticationService.getCurrentUser() !== null">-->
+<!--    <ion-list>-->
+<!--      <ion-item *ngFor="let bike of bikes">-->
+<!--        {{bike.dev_id}}<br>-->
+<!--        {{bike.hardware_serial}}<br>-->
+<!--        {{bike.latitude}}<br>-->
+<!--        {{bike.longitude}}<br>-->
+<!--        {{bike.speed}}-->
+<!--      </ion-item>-->
+<!--    </ion-list>-->
+<!--  </div>-->
+</ion-content>
+
